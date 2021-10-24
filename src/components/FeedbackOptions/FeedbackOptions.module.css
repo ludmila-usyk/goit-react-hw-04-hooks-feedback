@@ -1,0 +1,15 @@
+.list {
+    color: black;
+    border: 2px solid #802356;
+    border-radius: 6px;
+    width: 100px;
+    margin: 15px;
+    cursor: pointer;
+}
+    .list:hover {background-color: #802356}
+
+    .list:active {
+    background-color: #8023565b;
+    box-shadow: 0 5px #666;
+    transform: translateY(5px);
+    }
