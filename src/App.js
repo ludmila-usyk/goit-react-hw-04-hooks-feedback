@@ -1,60 +1,3 @@
-// import React, { Component } from 'react';
-// import Statistics from './components/Statistics/Statistics';
-// import Section from './components/Section/Section';
-// import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions';
-
-// class App extends Component {
-//   state = {
-//     good: 0,
-//     neutral: 0,
-//     bad: 0,
-//   };
-
-//   handleCount = e => {
-//     const name = e.currentTarget.name;
-//     this.setState(prevState => ({
-//       [name]: prevState[name] + 1,
-//     }));
-//   };
-
-//   countTotalFeedback = () => {
-//     const { good, neutral, bad } = this.state;
-//     return good + neutral + bad;
-//   };
-
-//   countPositiveFeedbackPercentage = () => {
-//     const { good } = this.state;
-//     return parseInt((good / this.countTotalFeedback()) * 100);
-//   };
-
-//   render() {
-//     const { good, neutral, bad } = this.state;
-//     return (
-//       <>
-//         <Section title="Please leave feedback">
-//           <FeedbackOptions
-//             options={['good', 'neutral', 'bad']}
-//             onLeaveFeedback={this.handleCount}
-//           />
-//         </Section>
-//         <Section title="Statistics">
-//           <Statistics
-//             good={good}
-//             neutral={neutral}
-//             bad={bad}
-//             total={this.countTotalFeedback()}
-//             positivePercentage={this.countPositiveFeedbackPercentage()}
-//           />
-//         </Section>
-//       </>
-//     );
-//   }
-// };
-
-// export default App;
-
-
-
 import React, { useState } from 'react';
 import Statistics from './components/Statistics/Statistics';
 import Section from './components/Section/Section';
@@ -68,16 +11,9 @@ export default function App() {
 
   const options = ['good', 'bad', 'neutral'];
 
-  // handleCount = e => {
-  //   const name = e.currentTarget.name;
-  //   this.setState(prevState => ({
-  //     [name]: prevState[name] + 1,
-  //   }));
-  // };
   const handleCount = ({ target }) => {
-    const { feedback } = target.dataset;
-  
-    switch (feedback) {
+
+    switch (target.name) {
       case 'good':
         setGoodFeedback(prevState => prevState + 1);
         break;
@@ -98,16 +34,11 @@ export default function App() {
   const countTotalFeedback = () => {
     return goodFeedback + badFeedback + neutralFeedback;
   };
-  // countPositiveFeedbackPercentage = () => {
-  //   const { good } = this.state;
-  //   return parseInt((good / this.countTotalFeedback()) * 100);
-  // };
+
 const countPositiveFeedbackPercentage = () => {
   const totalFeedback = countTotalFeedback();
   return totalFeedback ? Math.round((goodFeedback / totalFeedback) * 100) : 0;
 }
-  // render() {
-    // const { good, neutral, bad } = this.state;
     return (
       <>
         <Section title="Please leave feedback">
@@ -127,7 +58,4 @@ const countPositiveFeedbackPercentage = () => {
         </Section>
       </>
     );
-  // }
 };
-
-// export default App;
