@@ -60,8 +60,6 @@ import Statistics from './components/Statistics/Statistics';
 import Section from './components/Section/Section';
 import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions';
 
-
-
 export default function App() {
 
   const [goodFeedback, setGoodFeedback] = useState(0);
@@ -108,7 +106,6 @@ const countPositiveFeedbackPercentage = () => {
   const totalFeedback = countTotalFeedback();
   return totalFeedback ? Math.round((goodFeedback / totalFeedback) * 100) : 0;
 }
-
   // render() {
     // const { good, neutral, bad } = this.state;
     return (
